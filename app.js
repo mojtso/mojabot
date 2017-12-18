@@ -7,6 +7,9 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 
-app.post('/webhook', (req, res, next) => {
+app.get('/', (req, res, next) => {
     res.send('Server is up!');
 });
+
+
+module.exports = app;

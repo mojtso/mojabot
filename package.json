@@ -1,0 +1,24 @@
+{
+  "name": "mojabot",
+  "version": "1.0.0",
+  "description": "A test for FB bot",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mojtso/mojabot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mojtso/mojabot/issues"
+  },
+  "homepage": "https://github.com/mojtso/mojabot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  }
+}

@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
         body.entry.forEach(pageEntry => {
             pageEntry.messaging.forEach(messageEvent => {
                 console.log("message", messageEvent);
-                if(messagingEvent.message) {
+                if(messageEvent.message) {
                     let recieveService = new RecieveService();
                     recieveService.receivedMessage(messageEvent, (messageMeta) => {
                         // recieveService.callSendAPI(senderID, message);

@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
         if(webhook_event.message) {
             console.log(webhook_event);
         }
-        webhook_event.foreach(messageType => {
+        webhook_event.forEach(messageType => {
             console.log(messageType);
             return;
         });

@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.get('/', (req, res) => {
-    res.send('<h3>MojaBot is up!</h3>');
-});
+// app.get('/', (req, res) => {
+//     res.send('<h3>MojaBot is up!</h3>');
+// });
 
 //Routes handling request
 app.use('/webhook', routesWebHooks);

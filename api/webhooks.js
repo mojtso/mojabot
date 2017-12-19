@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
         body.entry.forEach(function(entry){
             let webHook_event = entry.messaging[0];
             if(webhook_event.message) {
-                console.log(webHook_event.message);
+                console.log("WHAT ARE U ",webHook_event.message);
             }
         });
     } else {

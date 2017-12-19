@@ -38,13 +38,7 @@ router.post('/', (req, res) => {
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
         let webhook_event = entry.messaging[0];
-        if(webhook_event.message) {
-            console.log(webhook_event);
-        }
-        webhook_event.forEach(messageType => {
-            console.log(messageType);
-            return;
-        });
+        console.log("WEBHOOK", webhook_event);
     } else {
         // Returns a '404 Not Found' if event is not from a page subscription
         res.sendStatus(404);

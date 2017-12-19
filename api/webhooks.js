@@ -3,7 +3,7 @@ const router = express.Router();
 
 let RecieveService = require('./services/recieve/service');
 
-const fb_token = process.env.FB_VERIFY_TOKEN || 'moja-forcesec';
+const fb_token = process.env.FB_VERIFY_TOKEN;
 
 //To Verify /webhook
 router.get('/', (req, res) => {

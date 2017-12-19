@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     let body = req.body;
-    console.log(body);
+    console.log("NOW USING POST WEBHOOK");
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched

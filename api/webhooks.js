@@ -43,6 +43,7 @@ router.post('/', (req, res) => {
         }
         webhook_event.foreach(messageType => {
             console.log(messageType);
+            return;
         });
     } else {
         // Returns a '404 Not Found' if event is not from a page subscription

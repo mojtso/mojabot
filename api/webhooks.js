@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const fb_token = process.env.FB_VERIFY_TOKEN;
+let RecieveService = require('./services/recieve/service');
+
+const fb_token = process.env.FB_VERIFY_TOKEN || 'moja-forcesec';
 
 //To Verify /webhook
 router.get('/', (req, res) => {
@@ -35,22 +37,39 @@ router.post('/', (req, res) => {
 
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
-
         // Iterates over each entry - there may be multiple if batched
-        body.entry.forEach(function(entry) {
-
-        // Gets the message. entry.messaging is an array, but 
-        // will only ever contain one message, so we get index 0
-        let webhookEvent = entry.messaging[0];
-        console.log(webhookEvent);
+        body.entry.forEach(pageEntry => {
+            pageEntry.messaging.forEach(messageEvent => {
+                if(messagingEvent.message) {
+                    let recieveService = new RecieveService();
+                    recieveService.receivedMessage(messageEvent, (senderID, message) => {
+                        recieveService.callSendAPI(senderID, message);
+                    });
+                }
+            });
         });
-
-        // Returns a '200 OK' response to all requests
-        res.status(200).send('EVENT_RECEIVED');
     } else {
         // Returns a '404 Not Found' if event is not from a page subscription
         res.sendStatus(404);
     }
 });
+
+/*
+router.get('/dummy', (req, res) => {
+    var recieveService = new RecieveService();
+    console.log(recieveService);
+});
+
+router.post('/dummy', (req, res) => {
+    var recieveService = new RecieveService();
+    console.log(recieveService);
+    recieveService.receivedMessage(req.body, (data, message) => {
+        res.status(200).json({
+            data: data,
+            message: message
+        });
+    });
+});
+*/
 
 module.exports = router;

@@ -39,9 +39,10 @@ router.post('/', (req, res) => {
     if (body.object === 'page') {
         body.entry.forEach(function(entry){
             let webHook_event = entry.messaging[0];
-            if(webhook_event.message) {
-                console.log("WHAT ARE U ",webHook_event.message);
-            }
+            console.log(webHook_event);
+            // if(webhook_event.message) {
+            //     console.log("WHAT ARE U ",webHook_event.message);
+            // }
         });
     } else {
         // Returns a '404 Not Found' if event is not from a page subscription

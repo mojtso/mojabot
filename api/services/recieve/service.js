@@ -25,7 +25,7 @@ class RecieveService extends BaseService {
                 id: senderID
             },
             message: {
-                text: message,
+                text: "This is a response from bot request",
                 metadata: "DEVELOPER_DEFINED_METADATA"
             }
         };

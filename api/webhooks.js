@@ -45,9 +45,7 @@ router.post('/', (req, res) => {
                     let recieveService = new RecieveService();
                     recieveService.receivedMessage(messageEvent, (messageMeta) => {
                         // recieveService.callSendAPI(senderID, message);
-                        res.status(200).json({
-                            messageMeta
-                        });
+                        recieveService.callSendAPI(messageMeta);
                     });
                 }
             });

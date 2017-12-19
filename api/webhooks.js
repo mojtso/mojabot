@@ -34,13 +34,12 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     let body = req.body;
-    console.log("REQUEST BODY: ", req.body);
+    
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(pageEntry => {
             pageEntry.messaging.forEach(messageEvent => {
-                console.log("message", messageEvent);
                 if(messageEvent.message) {
                     let recieveService = new RecieveService();
                     recieveService.receivedMessage(messageEvent, (messageMeta) => {

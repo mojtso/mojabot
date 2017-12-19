@@ -30,6 +30,8 @@ class RecieveService extends BaseService {
             }
         };
 
+        console.log("RETRIEVE FROM MESSAGE EVENT: ", messageMeta);
+
         callback(messageMeta);
     }
 }

@@ -6,18 +6,8 @@ class BaseService {
         
     }
 
-    callSendAPI(sender_psid, response) {
-        let message = {
-            recipient: {
-                id: sender_psid
-            },
-            message: {
-                text: response,
-                metadata: "DEVELOPER_DEFINED_METADATA"
-            }
-        };
-
-
+    callSendAPI() {
+        
         request({
             uri: 'https://graph.facebook.com/v2.6/me/messages',
             qs: { access_token: PAGE_ACCESS_TOKEN },

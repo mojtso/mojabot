@@ -40,10 +40,14 @@ router.post('/', (req, res) => {
         // Iterates over each entry - there may be multiple if batched
         body.entry.forEach(pageEntry => {
             pageEntry.messaging.forEach(messageEvent => {
+                console.log("message", messageEvent);
                 if(messagingEvent.message) {
                     let recieveService = new RecieveService();
-                    recieveService.receivedMessage(messageEvent, (senderID, message) => {
-                        recieveService.callSendAPI(senderID, message);
+                    recieveService.receivedMessage(messageEvent, (messageMeta) => {
+                        // recieveService.callSendAPI(senderID, message);
+                        res.status(200).json({
+                            messageMeta
+                        });
                     });
                 }
             });

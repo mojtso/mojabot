@@ -20,8 +20,17 @@ class RecieveService extends BaseService {
         var appId = message.app_id;
         var metadata = message.metadata;
 
+        let messageMeta = {
+            recipient: {
+                id: senderID
+            },
+            message: {
+                text: message,
+                metadata: "DEVELOPER_DEFINED_METADATA"
+            }
+        };
 
-        callback(sendID, "Quick reply tapped");
+        callback(messageMeta);
     }
 }
 

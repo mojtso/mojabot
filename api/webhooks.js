@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+const fb_token = process.env.FB_VERIFY_TOKEN;
+
+//To Verify /webhook
 router.get('/', (req, res) => {
     // Your verify token. Should be a random string.
-    let VERIFY_TOKEN = "moja-forcesec"
   
     // Parse the query params
     let mode = req.query['hub.mode'];
@@ -14,7 +16,7 @@ router.get('/', (req, res) => {
     if (mode && token) {
 
     // Checks the mode and token sent is correct
-        if (mode === 'subscribe' && token === VERIFY_TOKEN) {
+        if (mode === 'subscribe' && token === fb_token) {
             
             // Responds with the challenge token from the request
             console.log('WEBHOOK_VERIFIED');

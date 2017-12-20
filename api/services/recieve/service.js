@@ -9,7 +9,7 @@ class RecieveService extends BaseService {
         super();
     }
 
-    receivedMessage(messagingEvent, callback) {
+    receivedMessage(event, callback) {
         var senderID = event.sender.id;
         var recipientID = event.recipient.id;
         var timeOfMessage = event.timestamp;
@@ -20,19 +20,14 @@ class RecieveService extends BaseService {
         var appId = message.app_id;
         var metadata = message.metadata;
 
-        let messageMeta = {
-            recipient: {
-                id: senderID
+        let request_body = {
+            "recipient": {
+              "id": sender_psid
             },
-            message: {
-                text: "This is a response from bot request",
-                metadata: "DEVELOPER_DEFINED_METADATA"
-            }
-        };
+            "message": response
+          }
 
-        console.log("RETRIEVE FROM MESSAGE EVENT: ", messageMeta);
-
-        callback(messageMeta);
+        callback(request_body);
     }
 }
 

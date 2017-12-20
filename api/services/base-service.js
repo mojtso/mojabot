@@ -14,7 +14,7 @@ class BaseService {
             method: 'POST',
             json: messageData
         
-          }, function (error, response, body) {
+          }, function (error, response, body) { 
               if (!error && response.statusCode == 200) {
               var recipientId = body.recipient_id;
               var messageId = body.message_id;

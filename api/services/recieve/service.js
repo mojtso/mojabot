@@ -15,7 +15,7 @@ class RecieveService extends BaseService {
         var timeOfMessage = event.timestamp;
 
         let response = {
-            "text": `You sent the message: "${event.text}"!`
+            "text": `You sent the message: "${event.message.text}"!`
         };
 
         let request_body = {

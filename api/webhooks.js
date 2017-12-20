@@ -39,10 +39,9 @@ router.post('/', (req, res) => {
     if (body.object === 'page') {
         body.entry.forEach(function(entry){
             let webhook_event = entry.messaging[0];
-            console.log("WEBHOOK_EVENT", webhook_event);
             let recieveService = new RecieveService();
             recieveService.receivedMessage(webhook_event, (request_body) => {
-                console.log(request_body);
+                console.log("REQUEST_BODY",request_body);
                 recieveService.callSendAPI(request_body);
             });
         });

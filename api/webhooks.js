@@ -40,7 +40,9 @@ router.post('/', (req, res) => {
         body.entry.forEach(function(entry){
             let webhook_event = entry.messaging[0];
             console.log("WEBHOOK_EVENT", webhook_event);
+            
         });
+        res.status(200).send('EVENT_RECEIVED');
     } else {
         // Returns a '404 Not Found' if event is not from a page subscription
         res.sendStatus(404);

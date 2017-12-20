@@ -34,11 +34,11 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     let body = req.body;
-    console.log(body);
+
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
         body.entry.forEach(function(entry){
-            console.log("WEBHOOK", entry);
+            console.log("WEBHOOK", entry.message[0].text);
             // if(webhook_event.message) {
             //     console.log("WHAT ARE U ",webHook_event.message);
             // }

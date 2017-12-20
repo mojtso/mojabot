@@ -13,16 +13,14 @@ class RecieveService extends BaseService {
         var senderID = event.sender.id;
         var recipientID = event.recipient.id;
         var timeOfMessage = event.timestamp;
-        var message = event.message;
 
-        var isEcho = message.is_echo;
-        var messageId = message.mid;
-        var appId = message.app_id;
-        var metadata = message.metadata;
+        let response = {
+            "text": `You sent the message: "${event.text}"!`
+        };
 
         let request_body = {
             "recipient": {
-              "id": sender_psid
+              "id": senderID
             },
             "message": response
           }

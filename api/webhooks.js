@@ -38,11 +38,13 @@ router.post('/', (req, res) => {
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
         body.entry.forEach(function(entry){
-            let webhook_event = entry.messaging[0];
-            let recieveService = new RecieveService();
-            recieveService.receivedMessage(webhook_event, (request_body) => {
-                recieveService.callSendAPI(request_body);
-            });
+            if(entry.messaging) {
+                let webhook_event = entry.messaging[0];
+                let recieveService = new RecieveService();
+                recieveService.receivedMessage(webhook_event, (request_body) => {
+                    recieveService.callSendAPI(request_body);
+                });
+            }
         });
         res.status(200).send('EVENT_RECEIVED');
     } else {

@@ -25,7 +25,7 @@ class BaseService {
                 messageId, recipientId);
                 
             } else {
-            console.log("Successfully called Send API for recipient %s",
+              console.log("Successfully called Send API for recipient %s",
               recipientId);
               
             }

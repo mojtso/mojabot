@@ -23,16 +23,13 @@ class BaseService {
             if (messageId) {
               console.log("Successfully sent message with id %s to recipient %s",
                 messageId, recipientId);
-                
             } else {
               console.log("Successfully called Send API for recipient %s",
               recipientId);
-              
             }
           } else {
             console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
           }
-          return;
       });
     }
 }

@@ -14,8 +14,27 @@ class RecieveService extends BaseService {
         var recipientID = event.recipient.id;
         var timeOfMessage = event.timestamp;
 
+        
         let response = {
-            "text": event.message.text
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "button",
+                    "text": "Hi, do you want to play outside?",
+                    "buttons": [
+                        {
+                            "type": "postback",
+                            "title": "No..",
+                            "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                        },
+                        {
+                            "type": "postback",
+                            "title": "Yes!",
+                            "payload": "DEVELOPER_DEFINED_PAYLOAD"   
+                        }
+                    ]
+                }
+            }
         };
 
         let request_body = {
@@ -23,7 +42,7 @@ class RecieveService extends BaseService {
               "id": senderID
             },
             "message": response
-          }
+        }
 
         callback(request_body);
     }

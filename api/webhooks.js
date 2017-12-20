@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
 
     // Checks this is an event from a page subscription
     if (body.object === 'page') {
-        body.entry.forEach(function(entry){
+        body.entry.forEach(function(entry) {
             if(entry.messaging) {
                 let webhook_event = entry.messaging[0];
                 let recieveService = new RecieveService();

@@ -19,6 +19,8 @@ class BaseService {
             if (!error && response.statusCode == 200) {
             var recipientId = body.recipient_id;
             var messageId = body.message_id;
+
+            console.log("THIS IS THE RESPONSE", response);
       
             if (messageId) {
               console.log("Successfully sent message with id %s to recipient %s",

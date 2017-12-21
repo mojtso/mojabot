@@ -46,7 +46,6 @@ router.post('/', (req, res) => {
                 });
             }
         });
-        console.log("RES IS SENT!");
         res.status(200).send('EVENT_RECEIVED');
     } else {
         // Returns a '404 Not Found' if event is not from a page subscription

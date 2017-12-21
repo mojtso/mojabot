@@ -36,10 +36,6 @@ class RecieveService extends BaseService {
             ]
         };
 
-        // let response = {
-        //     "text": event.message.text
-        // };
-
         let request_body = {
             "recipient": {
               "id": senderID

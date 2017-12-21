@@ -15,31 +15,30 @@ class RecieveService extends BaseService {
         var timeOfMessage = event.timestamp;
 
         
-        // let response = {
-        //     "attachment": {
-        //         "type": "template",
-        //         "payload": {
-        //             "template_type": "button",
-        //             "text": "Hi, do you want to play outside?",
-        //             "buttons": [
-        //                 {
-        //                     "type": "postback",
-        //                     "title": "No..",
-        //                     "payload": "DEVELOPER_DEFINED_PAYLOAD"
-        //                 },
-        //                 {
-        //                     "type": "postback",
-        //                     "title": "Yes!",
-        //                     "payload": "DEVELOPER_DEFINED_PAYLOAD"   
-        //                 }
-        //             ]
-        //         }
-        //     }
-        // };
-
         let response = {
-            "text": event.message.text
+            "text": "Hi, do you want to play outside? ",
+            "quick_replies": [
+                {
+                    "content_type":"text",
+                    "title":"Action",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTION"
+                    },
+                    {
+                    "content_type":"text",
+                    "title":"Comedy",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
+                    },
+                    {
+                    "content_type":"text",
+                    "title":"Drama",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DRAMA"
+                }
+            ]
         };
+
+        // let response = {
+        //     "text": event.message.text
+        // };
 
         let request_body = {
             "recipient": {

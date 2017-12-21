@@ -27,7 +27,7 @@ class BaseService {
               console.log("Successfully called Send API for recipient %s",
               recipientId);
             }
-            response.sendStatus(200);
+            return response.status(200);
           } else {
             console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
           }

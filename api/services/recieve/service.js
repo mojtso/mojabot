@@ -45,14 +45,14 @@ class RecieveService extends BaseService {
                       "elements":[
                          {
                           "title":"Welcome to Peter'\''s Hats",
-                          "image_url":"https://in.pinterest.com/pin/495044184024461136/",
+                          "image_url":encodeURIComponent("https://in.pinterest.com/pin/495044184024461136/"),
                           "subtitle":"We'\''ve got the right hat for everyone.",
                           "default_action": {
                             "type": "web_url",
-                            "url": "https://in.pinterest.com/pin/495044184024461136/",
+                            "url": encodeURIComponent("https://in.pinterest.com/pin/495044184024461136/"),
                             "messenger_extensions": true,
                             "webview_height_ratio": "tall",
-                            "fallback_url": "https://in.pinterest.com/pin/495044184024461136/"
+                            "fallback_url": encodeURIComponent("https://in.pinterest.com/pin/495044184024461136/")
                           },
                           "buttons":[
                             {

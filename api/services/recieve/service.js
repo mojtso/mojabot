@@ -16,7 +16,7 @@ class RecieveService extends BaseService {
 
         
         let response = {
-            "text": "What's your favorite movie genre? ",
+            "text": "Hi! is the anything that I can do for you? :)",
             "quick_replies": [
                 {
                     "content_type":"text",

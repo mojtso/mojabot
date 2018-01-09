@@ -69,7 +69,7 @@ class RecieveService extends BaseService {
                 "recipient": {
                   "id": senderID
                 },
-                "message": response
+                "message": data
             }
 
             console.log(request_body);

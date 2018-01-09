@@ -17,7 +17,7 @@ class RecieveService extends BaseService {
         
         if(message.quick_reply) {
             var quickReplyPayload = message.quick_reply;
-            var response = { quickReplyPayload.paylod };
+            var response = { quickReplyPayload.payload };
             console.log("METHOD IN QUICK REPLY ");
             console.log(response);
             switch (quickReplyPayload.payload) {

@@ -15,16 +15,14 @@ class RecieveService extends BaseService {
         var timeOfMessage = event.timestamp;
         var message = event.message;
         
-        console.log(message.quick_reply);
-
         if(message.quick_reply) {
             var quickReplyPayload = message.quick_reply;
-            var response = {};
-
+            var response = { quickReplyPayload };
+            console.log("METHOD IN QUICK REPLY ");
             switch (quickReplyPayload.payload) {
                 case '0':
                     //select movies genre
-                    response = { movies };
+                    // response = movies();
                     break;
                 case '1':
                     //select news category
@@ -37,8 +35,6 @@ class RecieveService extends BaseService {
                 default:
                     break;
             }
-            
-            console.log("DATA ", response);
 
             callback(null)
 
@@ -83,7 +79,7 @@ class RecieveService extends BaseService {
 
 
 
-    movies() {
+    function movies() {
         // Action. Adventure. Animation. Biography. Comedy. Crime.
         // Horror. Music. Musical. Mystery. Romance. Sci-Fi.
         let data = {

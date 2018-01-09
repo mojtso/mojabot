@@ -17,20 +17,34 @@ class RecieveService extends BaseService {
         
         console.log(message.quick_reply);
 
-        if(message.quick_replies) {
-            var quickReplyPayload = message.quick_replies;
+        if(message.quick_reply) {
+            var quickReplyPayload = message.quick_reply;
+            var response = {};
 
-            if(quickReplyPayload === "0") {
-                console.log("Payload is ", quickReplyPayload);
-            } else if(quickReply === "1") {
-                console.log("Payload is ", quickReplyPayload);
-            } else if (quickReplyPayload === "2") {
-                console.log("Payload is ", quickReplyPayload);
+            switch (quickReplyPayload.payload) {
+                case '0':
+                    //select movies genre
+                    response = { movies };
+                    break;
+                case '1':
+                    //select news category
+
+                    break;
+                case '2':
+                    //request location for weather
+
+                    break;
+                default:
+                    break;
             }
+            
+            console.log("DATA ", response);
+
             callback(null)
 
         } else {
-            let response = {
+            //send a quick reply
+            let data = {
                 "text": "Hi :)! If theres anything you need, select from the list.",
                 "quick_replies": [
                     {
@@ -63,6 +77,52 @@ class RecieveService extends BaseService {
 
         return;
     }
+
+
+
+
+
+    movies() {
+        // Action. Adventure. Animation. Biography. Comedy. Crime.
+        // Horror. Music. Musical. Mystery. Romance. Sci-Fi.
+        let data = {
+            "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"generic",
+                  "elements":[
+                     {
+                      "title":"Welcome to Peter'\''s Hats",
+                      "image_url":"https://petersfancybrownhats.com/company_image.png",
+                      "subtitle":"We'\''ve got the right hat for everyone.",
+                      "default_action": {
+                        "type": "web_url",
+                        "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+                        "messenger_extensions": true,
+                        "webview_height_ratio": "tall",
+                        "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                      },
+                      "buttons":[
+                        {
+                          "type":"web_url",
+                          "url":"https://petersfancybrownhats.com",
+                          "title":"View Website"
+                        },
+                        {
+                          "type":"postback",
+                          "title":"Start Chatting",
+                          "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                        }              
+                      ]      
+                    }
+                  ]
+                }
+            }
+        };
+        
+        return data;
+    }
+
 }
 
 module.exports = RecieveService;

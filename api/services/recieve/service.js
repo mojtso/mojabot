@@ -17,8 +17,7 @@ class RecieveService extends BaseService {
         
         if(message.quick_reply) {
             var quickReplyPayload = message.quick_reply;
-           
-            console.log(quickReplyPayload.payload);
+            
             switch (quickReplyPayload.payload) {
                 case '0':
                     //select movies genre
@@ -59,7 +58,7 @@ class RecieveService extends BaseService {
                             }
                         }
                     };
-                    console.log(data);
+                    
                     break;
                 case '1':
                     //select news category
@@ -72,8 +71,13 @@ class RecieveService extends BaseService {
                 default:
                     break;
             }
-
-            callback(null)
+            let request_body = {
+                "recipient": {
+                  "id": senderID
+                },
+                "message": data
+            }
+            callback(request_body);
 
         } else {
             //send a quick reply

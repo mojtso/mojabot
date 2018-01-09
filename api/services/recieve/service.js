@@ -17,12 +17,13 @@ class RecieveService extends BaseService {
         
         if(message.quick_reply) {
             var quickReplyPayload = message.quick_reply;
-            var response = { quickReplyPayload };
+            var response = { quickReplyPayload.paylod };
             console.log("METHOD IN QUICK REPLY ");
+            console.log(response);
             switch (quickReplyPayload.payload) {
                 case '0':
                     //select movies genre
-                    // response = movies();
+                    response = movies();
                     break;
                 case '1':
                     //select news category
@@ -68,7 +69,6 @@ class RecieveService extends BaseService {
                 "message": data
             }
 
-            console.log(request_body);
             callback(request_body);
         }
 

@@ -15,7 +15,7 @@ class RecieveService extends BaseService {
         var timeOfMessage = event.timestamp;
         var message = event.message;
         
-        console.log(message.quick_replies);
+        console.log(message.quick_reply);
 
         if(message.quick_replies) {
             var quickReplyPayload = message.quick_replies;

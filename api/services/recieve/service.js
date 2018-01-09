@@ -79,7 +79,7 @@ class RecieveService extends BaseService {
 
 
 
-    function movies() {
+    movies() {
         // Action. Adventure. Animation. Biography. Comedy. Crime.
         // Horror. Music. Musical. Mystery. Romance. Sci-Fi.
         let data = {

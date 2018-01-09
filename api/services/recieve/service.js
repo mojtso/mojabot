@@ -17,12 +17,14 @@ class RecieveService extends BaseService {
         
         if(message.quick_reply) {
             var quickReplyPayload = message.quick_reply;
-            console.log("--- METHOD IN QUICK REPLY ---");
+           
             console.log(quickReplyPayload.payload);
             switch (quickReplyPayload.payload) {
                 case '0':
                     //select movies genre
                     var response = movies();
+                    console.log("--- Movies IN QUICK REPLY ---");
+                    console.log(response);
                     break;
                 case '1':
                     //select news category

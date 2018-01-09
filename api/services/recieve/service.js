@@ -15,7 +15,19 @@ class RecieveService extends BaseService {
         var timeOfMessage = event.timestamp;
         var message = event.message;
         
+        console.log(message.quick_replies);
+
         if(message.quick_replies) {
+            var quickReplyPayload = message.quick_replies;
+
+            if(quickReplyPayload === "0") {
+                console.log("Payload is ", quickReplyPayload);
+            } else if(quickReply === "1") {
+                console.log("Payload is ", quickReplyPayload);
+            } else if (quickReplyPayload === "2") {
+                console.log("Payload is ", quickReplyPayload);
+            }
+            callback(null)
 
         } else {
             let response = {
@@ -48,7 +60,7 @@ class RecieveService extends BaseService {
     
             callback(request_body);
         }
-        console.log("RETURNING FROM A CALLBACK!!")
+
         return;
     }
 }

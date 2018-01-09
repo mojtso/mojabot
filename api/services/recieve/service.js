@@ -45,19 +45,19 @@ class RecieveService extends BaseService {
                       "elements":[
                          {
                           "title":"Welcome to Peter'\''s Hats",
-                          "image_url":"https://petersfancybrownhats.com/company_image.png",
+                          "image_url":"http://media1.break.com/dnet/media/828/926/2926828/10-best-action-movie-theme-songs-to-pump-up-your-life-image-3.jpg",
                           "subtitle":"We'\''ve got the right hat for everyone.",
                           "default_action": {
                             "type": "web_url",
-                            "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+                            "url": "http://www.screenjunkies.com/movies/genres-movies/action/10-best-action-movie-theme-songs-to-pump-up-your-life",
                             "messenger_extensions": true,
                             "webview_height_ratio": "tall",
-                            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                            "fallback_url": "https://in.pinterest.com/pin/495044184024461136/"
                           },
                           "buttons":[
                             {
                               "type":"web_url",
-                              "url":"https://petersfancybrownhats.com",
+                              "url":"https://in.pinterest.com/pin/495044184024461136/",
                               "title":"View Website"
                             },
                             {
@@ -71,13 +71,14 @@ class RecieveService extends BaseService {
                     }
                 }
             };
-            
+
             let request_body = {
                 "recipient": {
                   "id": senderID
                 },
                 "message": data
-            }
+            };
+
             callback(request_body);
 
         } else {

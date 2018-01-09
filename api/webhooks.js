@@ -40,7 +40,6 @@ router.post('/', (req, res) => {
         body.entry.forEach(function(entry) {
             if(entry.messaging) {
                 let webhook_event = entry.messaging[0];
-                console.log(entry);
                 let recieveService = new RecieveService();
                 recieveService.receivedMessage(webhook_event, (request_body) => {
                     recieveService.callSendAPI(request_body);

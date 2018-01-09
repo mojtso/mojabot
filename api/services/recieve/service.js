@@ -20,7 +20,7 @@ class RecieveService extends BaseService {
         if(message.quick_reply) {
             var quickReplyPayload = message.quick_reply;
             var response = {};
-            
+
             switch (quickReplyPayload.payload) {
                 case '0':
                     //select movies genre
@@ -71,7 +71,8 @@ class RecieveService extends BaseService {
                 },
                 "message": response
             }
-    
+
+            console.log(request_body);
             callback(request_body);
         }
 

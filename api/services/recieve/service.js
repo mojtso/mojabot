@@ -16,21 +16,21 @@ class RecieveService extends BaseService {
 
         
         let response = {
-            "text": "Hi! is the anything that I can do for you? :)",
+            "text": "Hi :)! If theres anything you need, select from the list.",
             "quick_replies": [
                 {
                     "content_type":"text",
-                    "title":"Action",
+                    "title":"Movies",
                     "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTION"
                     },
                     {
                     "content_type":"text",
-                    "title":"Comedy",
+                    "title":"News",
                     "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
                     },
                     {
                     "content_type":"text",
-                    "title":"Drama",
+                    "title":"Todays weather",
                     "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DRAMA"
                 }
             ]

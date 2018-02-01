@@ -8,10 +8,9 @@ export default (sequelize, DataTypes) => {
     File.associate = (models) => {
         //1:M
         File.belongsTo(models.Subscriber, {
-            through: 'subscriber_files',
             foreignKey: {
-                name: 'fileId',
-                field: 'field_id',
+                name: 'subscriberOwner',
+                field: 'subscriber_owner',
             }
         });
     };

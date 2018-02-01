@@ -1,5 +1,5 @@
 export default (sequelize, DataTypes) => {
-    const Subscriber = sequelize.define("subsriber", {
+    const Subscriber = sequelize.define("subscriber", {
         username: {
             type: DataTypes.STRING
         }
@@ -9,8 +9,8 @@ export default (sequelize, DataTypes) => {
         Subscriber.belongsToMany(models.File, {
             through: 'subscriber_files',
             foreignKey: {
-                name: 'subscriber_files',
-                feild: 'subscriber_id',
+                name: 'subscriberId',
+                field: 'subscriber_id',
             }
         });
     };

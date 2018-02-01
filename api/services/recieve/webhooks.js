@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-let RecieveService = require('./base-service');
+let RecieveService = require('./services/recieve/service');
 
 const fb_token = process.env.FB_VERIFY_TOKEN;
 

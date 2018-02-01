@@ -17,6 +17,7 @@ app.use((req, res, next) => {
     
     if(req.header === 'OPTIONS') {
         res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE');
+        return res.status(200).json({});
     }
 
     next();

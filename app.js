@@ -1,13 +1,26 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+import express from 'express';
+import app from express();
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+
+//Import routes from routes folder
+import subcriptionRoutes from './api/services/routes/subscriptions'
 
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Header', 'Origin X-Requested-With, Content-Type, Accept, Authorization');
+    
+    if(req.header === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE');
+    }
+
+    next();
+});
 
 
 app.get('/', (req, res) => {
@@ -15,7 +28,7 @@ app.get('/', (req, res) => {
 });
 
 //Routes handling request
-
+app.use('/subscription', subcriptionRoutes);
 
 
 app.use((req, res, next) => {

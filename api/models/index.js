@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import config from '../../config/config';
 
-var sequelize = new Sequelize(process.env.DATABASE, process.env.DB_USENAME, process.env.DB_PASSWORD, {
+var sequelize = new Sequelize(process.env.DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
     dialect: 'postgres',
     define: {
         underscored: true

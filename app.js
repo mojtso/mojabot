@@ -1,10 +1,10 @@
 import express from 'express';
-import app from express();
+const app = express();
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 
 //Import routes from routes folder
-import subcriptionRoutes from './api/services/routes/subscriptions'
+// import subcriptionRoutes from './api/services/routes/subscriptions'
 
 
 app.use(morgan('dev'));
@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 //Routes handling request
-app.use('/subscription', subcriptionRoutes);
+// app.use('/subscription', subcriptionRoutes);
 
 
 app.use((req, res, next) => {

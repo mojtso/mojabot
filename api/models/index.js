@@ -1,20 +1,18 @@
 import Sequelize from 'sequelize';
-import config from '../config/config';
 
-const env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'development';
+var config = require(__dirname + '/../config/config.json')[env];
 
+console.log(process.env[config.use_env_variable], config)
 
-if(env === 'development') {
-    console.log("...........running development");
-    var sequelize = new Sequelize('subscribers_db', 'postgres','MyNewPass', {
-        dialect: 'postgres',
-        define: {
-            underscored: true
-        }
-    });
+if(config.use_env_variable) {
+    console.log("...........running prod");
+    var sequelize = new Sequelize(process.env[config.use_env_variable], config);
 }else {
-    console.log("...........running production");
-    var sequelize = new Sequelize(process.env.PROD_DB_NAME, process.env.PROD_DB_USERNAME, process.env.PROD_DB_PASSWORD, {
+    console.log("...........running dev");
+    
+
+    var sequelize = new Sequelize('subscribers_db', 'postgres','MyNewPass', {
         dialect: 'postgres',
         define: {
             underscored: true

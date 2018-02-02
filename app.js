@@ -5,7 +5,7 @@ import morgan from 'morgan';
 
 //Import routes from routes folder
 import subscriberRoutes from './api/routes/subscriptions';
-
+import userRoutes from './api/routes/user';
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 
 //Routes handling request
 app.use('/subscriber', subscriberRoutes);
+app.use('/user', userRoutes);
 
 
 app.use((req, res, next) => {

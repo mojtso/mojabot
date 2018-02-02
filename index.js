@@ -6,6 +6,6 @@ import models from './api/models';
 const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 
-models.sequelize.sync({ }).then((results) => {
+models.sequelize.sync({ force: true }).then((results) => {
     server.listen(port);
 });

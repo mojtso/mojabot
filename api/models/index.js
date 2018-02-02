@@ -1,7 +1,6 @@
 import Sequelize from 'sequelize';
-import config from '../../config/config';
+import config from '../config/config';
 
-console.log("DB RESULTS ", process.env.DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD);
 
 var sequelize = new Sequelize(process.env.PROD_DB_NAME || 'subscribers_db', process.env.PROD_DB_USERNAME || 'postgres', process.env.PROD_DB_PASSWORD || 'MyNewPass', {
     dialect: 'postgres',

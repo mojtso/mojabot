@@ -2,7 +2,7 @@
   "name": "mojabot",
   "version": "1.0.0",
   "description": "A test for FB bot",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node index.js"
   },
@@ -24,8 +24,10 @@
     "express": "^4.16.2",
     "nodemon": "^1.13.3",
     "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
     "request": "^2.83.0",
-    "sequelize": "^4.32.2"
+    "sequelize": "^4.32.2",
+    "sequelize-cli": "^3.2.0"
   },
   "devDependencies": {
     "morgan": "^1.9.0"

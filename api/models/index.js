@@ -1,13 +1,26 @@
 import Sequelize from 'sequelize';
 import config from '../config/config';
 
+const env = process.env.NODE_ENV || 'development';
 
-var sequelize = new Sequelize(process.env.PROD_DB_NAME || 'subscribers_db', process.env.PROD_DB_USERNAME || 'postgres', process.env.PROD_DB_PASSWORD || 'MyNewPass', {
-    dialect: 'postgres',
-    define: {
-        underscored: true
-    }
-});
+
+if(env === 'development') {
+    console.log("...........running development");
+    var sequelize = new Sequelize('subscribers_db', 'postgres','MyNewPass', {
+        dialect: 'postgres',
+        define: {
+            underscored: true
+        }
+    });
+}else {
+    console.log("...........running production");
+    var sequelize = new Sequelize(process.env.PROD_DB_NAME, process.env.PROD_DB_USERNAME, process.env.PROD_DB_PASSWORD, {
+        dialect: 'postgres',
+        define: {
+            underscored: true
+        }
+    });
+}
 
 const models = {
     User: sequelize.import('./user'),

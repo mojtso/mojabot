@@ -6,10 +6,12 @@ import morgan from 'morgan';
 //Import routes from routes folder
 import subscriberRoutes from './api/routes/subscriptions';
 import userRoutes from './api/routes/user';
+import fileRoutes from './api/routes/files';
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -29,8 +31,9 @@ app.get('/', (req, res) => {
 });
 
 //Routes handling request
-app.use('/subscriber', subscriberRoutes);
+app.use('/subscribe', subscriberRoutes);
 app.use('/user', userRoutes);
+app.use('/file', fileRoutes);
 
 
 app.use((req, res, next) => {

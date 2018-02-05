@@ -26,7 +26,7 @@ exports.create_user = (req, res) => {
                 });
             });
         } catch (err) {
-            res.status(200).json({ error: err });
+            res.status(400).json({ error: err });
         }
     } else{
         res.status(400).json({ message: 'Required email and password'});

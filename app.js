@@ -38,7 +38,7 @@ app.use(express.static(relative('public_static')));
 app.engine('hbs', exphbs.express4({
     partialsDir: relative('views/src/partials'),
     layoutsDir: relative('views/src/layouts'),
-    defaultLayout: relative('views/src/layouts/main.hbs')
+    defaultLayout: relative('views/index.hbs')
 }));
 app.set('view engine', 'hbs');
 app.set('views', relative('views'));
@@ -54,7 +54,7 @@ const pagesRoutes = {
 app.use('api/subscribe', subscriberRoutes);
 app.use('api/user', userRoutes);
 app.use('api/file', fileRoutes);
-app.use('/official', pagesRoutes.pages);
+app.use('/', pagesRoutes.pages);
 
 
 

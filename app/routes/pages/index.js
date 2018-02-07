@@ -3,8 +3,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-    res.render('index');
-    // res.status(200).json({ message: 'express'});
+    res.render('src/layouts/main');
 });
 
 exports.router = router;

@@ -11,7 +11,6 @@ export default (sequelize, DataTypes) => {
             foreignKey: {
                 name: 'subscriberOwner',
                 field: 'subscriber_owner',
-                type: DataTypes.INTEGER
             }
         });
     };

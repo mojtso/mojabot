@@ -31,5 +31,5 @@ exports.create_user = (req, res) => {
     } else{
         res.status(400).json({ message: 'Required email and password'});
     }
-    
 };
+

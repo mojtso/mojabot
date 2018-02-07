@@ -1,0 +1,22 @@
+%button 
+	color: $black
+	text-align: center
+	display: inline-block
+	position: relative
+	padding: 10px 15px
+	cursor: pointer
+	background: transparent
+	border: 1px solid currentColor
+	transition: color $time, background $time
+	&:hover,
+	&:focus 
+		color: $white
+		background: $black
+
+.btn,
+button
+	@extend %button
+	
+
+
+

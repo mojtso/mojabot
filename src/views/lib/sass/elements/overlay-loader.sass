@@ -1,0 +1,55 @@
+// overlay with preloader
+.overlay
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-color: rgba($black, .95)
+	opacity: 1
+	transition: visibility 0s 1s, opacity 1s 0s
+	z-index: z("overlay")
+	// activated
+	.loaded & 
+		visibility: hidden
+		opacity: 0
+		transition: visibility 0s 1s, opacity 1s 0s
+	.loader
+		width: 100px
+		height: 100px
+		position: relative
+		text-align: center
+		top: 50%
+		left: 50%
+		margin: -50px 0 0 -45px
+		border-radius: 50%
+		opacity: 0
+		transition: opacity 2s 1s
+		transform-origin: center center
+		&:before
+			content: ""
+			width: 90px
+			height: 90px
+			display: block
+			position: absolute
+			top: 0
+			left: 0
+			border-radius: 50%
+			border: 2px solid rgba($white, .65)
+			border-left-color: transparent
+			transform: translate(5px, 5px)
+			transform-origin: center center
+		// activate
+		&.fade
+			opacity: 1
+		// activate aniamtion
+		&.loading
+			animation: spinRight 3s .5s infinite 
+
+// loader spinners
+@keyframes spinRight
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+

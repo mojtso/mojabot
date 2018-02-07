@@ -1,0 +1,19 @@
+	{{> overlay-loader}}
+	{{> nojs }}
+
+	<!-- pull in svg https://css-tricks.com/ajaxing-svg-sprite/ -->
+	<script type="text/javascript">
+	var ajax = new XMLHttpRequest();
+	ajax.open("GET", "assets/svg-sprite/symbol/sprite.svg", true); 
+	ajax.send();
+	ajax.onload = function(e) {
+		var div = document.createElement("div");
+		div.id = "svgSprite";
+		div.innerHTML = ajax.responseText;
+		document.body.insertBefore(div, document.body.childNodes[0]);
+	}
+	</script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="assets/js/main.min.js" type="text/javascript" charset="utf-8"></script>    
+	</body>
+</html> 

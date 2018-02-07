@@ -1,6 +1,6 @@
 import http from 'http';
 import app from './app';
-import models from './api/models';
+import models from './app/models';
 
 
 const port = process.env.PORT || 3000;

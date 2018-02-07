@@ -2,11 +2,17 @@ import express from 'express';
 const app = express();
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import exphbs from 'express-hbs';
+import path from 'path';
 
 //Import routes from routes folder
-import subscriberRoutes from './api/routes/subscriptions';
-import userRoutes from './api/routes/user';
-import fileRoutes from './api/routes/files';
+import subscriberRoutes from './app/routes/api/subscriptions';
+import userRoutes from './app/routes/api/user';
+import fileRoutes from './app/routes/api/files';
+
+const pagesRoutes = {
+    pages: require('./app/routes/pages').router
+};
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,14 +32,21 @@ app.use((req, res, next) => {
 });
 
 
+app.engine('hbr', exphbs.express4({
+    partialsDir: path.join(__dirname, './src/views/partials'),
+    layoutsDir: path.join(__dirname, './src/views/layouts'),
+    defaultLayout: 'view/layouts/index.hbr'
+}));
+
 app.get('/', (req, res) => {
     res.send('<h3>MojaBot is up!</h3>');
 });
 
 //Routes handling request
-app.use('/subscribe', subscriberRoutes);
-app.use('/user', userRoutes);
-app.use('/file', fileRoutes);
+app.use('api/subscribe', subscriberRoutes);
+app.use('api/user', userRoutes);
+app.use('api/file', fileRoutes);
+app.use('/', express.static(path.join(__dirname, './src/lib'))); 
 
 
 app.use((req, res, next) => {

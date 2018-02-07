@@ -3,16 +3,13 @@ const app = express();
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import exphbs from 'express-hbs';
-import path from 'path';
+import fp from 'path';
 
 //Import routes from routes folder
 import subscriberRoutes from './app/routes/api/subscriptions';
 import userRoutes from './app/routes/api/user';
 import fileRoutes from './app/routes/api/files';
 
-const pagesRoutes = {
-    pages: require('./app/routes/pages').router
-};
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,22 +28,34 @@ app.use((req, res, next) => {
     next();
 });
 
+//PAGES CONFIG
+function relative(path) {
+    return fp.join(__dirname, path);
+}
 
-app.engine('hbr', exphbs.express4({
-    partialsDir: path.join(__dirname, './src/views/partials'),
-    layoutsDir: path.join(__dirname, './src/views/layouts'),
-    defaultLayout: 'view/layouts/index.hbr'
+const viewsDir = relative('views');
+app.use(express.static(relative('public_static')));
+app.engine('hbs', exphbs.express4({
+    partialsDir: relative('views/src/partials'),
+    layoutsDir: relative('views/src/layouts'),
+    defaultLayout: relative('views/src/layouts/main.hbs')
 }));
+app.set('view engine', 'hbs');
+app.set('views', relative('views'));
+//END PAGES CONFIG
 
-app.get('/', (req, res) => {
-    res.send('<h3>MojaBot is up!</h3>');
-});
+
+
 
 //Routes handling request
+const pagesRoutes = {
+    pages: require('./app/routes/pages').router
+};
 app.use('api/subscribe', subscriberRoutes);
 app.use('api/user', userRoutes);
 app.use('api/file', fileRoutes);
-app.use('/', express.static(path.join(__dirname, './src/lib'))); 
+app.use('/official', pagesRoutes.pages);
+
 
 
 app.use((req, res, next) => {

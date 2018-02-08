@@ -7,7 +7,7 @@ import config from '../config/config.js';
 console.log(config.use_env_variable);
 console.log(process.env.NODE_ENV);
 
-if(config.use_env_variable === env) {
+if(config.use_env_variable) {
     console.log("...........running prod");
     var sequelize = new Sequelize(process.env[config.use_env_variable], config);
 }else {

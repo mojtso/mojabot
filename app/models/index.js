@@ -5,7 +5,7 @@ var env = process.env.NODE_ENV || 'development';
 
 if(process.env.NODE_ENV === 'production') {
     console.log("...........running ", env);
-    var sequelize = new Sequelize(process.env.DATABASE_URL, config);
+    var sequelize = new Sequelize(process.env.DATABASE_URL);
 }else {
     console.log("...........running ", env);
     var sequelize = new Sequelize('subscribers_db', process.env.NODE_POSTGRES_USER, process.env.NODE_POSTGRES_PASSWORD, {

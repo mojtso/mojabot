@@ -2,10 +2,12 @@ import Sequelize from 'sequelize';
 
 var env = process.env.NODE_ENV || 'development';
 // var config = require(__dirname + '/../config/config.js')[env];
-import config from '../config/config';
+import config from '../config/config.js';
 
-console.log(env);
-if(config.use_env_variable ==='production') {
+console.log(config.use_env_variable);
+console.log(process.env.NODE_ENV);
+
+if(config.use_env_variable === env) {
     console.log("...........running prod");
     var sequelize = new Sequelize(process.env[config.use_env_variable], config);
 }else {
@@ -16,6 +18,7 @@ if(config.use_env_variable ==='production') {
             underscored: true
         }
     });
+    // var sequelize = new Sequelize(process.env[config.use_env_variable], config);
 }
 
 const models = {

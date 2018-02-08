@@ -8,7 +8,8 @@ if(process.env.NODE_ENV === 'production') {
     var sequelize = new Sequelize(process.env.DATABASE_URL);
 }else {
     console.log("...........running ", env);
-    var sequelize = new Sequelize('subscribers_db', process.env.NODE_POSTGRES_USER, process.env.NODE_POSTGRES_PASSWORD, {
+    console.log( process.env.NODE_POSTGRES_USER, process.env.NODE_POSTGRES_PASSWORD);
+    var sequelize = new Sequelize('subscribers_db', 'postgres', process.env.NODE_POSTGRES_PASSWORD, {
         dialect: 'postgres',
         define: {
             underscored: true

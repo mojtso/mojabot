@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import FileController from '../controllers/files';
+import FileController from '../../controllers/files';
 
 
 router.get('/', FileController.get_all_files_with_owners);

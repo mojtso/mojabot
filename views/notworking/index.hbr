@@ -1,0 +1,23 @@
+{{> head }}
+
+<figure class="hero">
+	<img  src="https://dummyimage.com/1920x420/3e3e3e/fff" srcset="assets/img/large.jpg 1200w, assets/img/medium.jpg 1024w, assets/img/small.jpg 768w" alt="" class="bg"> 
+</figure> 
+
+<svg class="icon helmet" viewBox="0 0 100 100">
+	<use xlink:href="#helmet" /> 
+</svg>
+
+<svg class="icon skate" viewBox="0 0 100 100">
+	<use xlink:href="#skate" /> 
+</svg>
+ 
+<svg class="icon arrow" viewBox="0 0 100 100">
+	<use xlink:href="#arrow-down" /> 
+</svg>
+
+<svg class="icon star" viewBox="0 0 50 50">  
+	<use xlink:href="#star" />   
+</svg> 
+
+{{> foot }}  

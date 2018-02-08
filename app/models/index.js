@@ -3,7 +3,6 @@ import Sequelize from 'sequelize';
 var env = process.env.NODE_ENV || 'development';
 var config = require(__dirname + '/../config/config.json')[env];
 
-console.log(process.env[config.use_env_variable], config)
 
 if(config.use_env_variable) {
     console.log("...........running prod");
@@ -11,7 +10,6 @@ if(config.use_env_variable) {
 }else {
     console.log("...........running dev");
     
-
     var sequelize = new Sequelize('subscribers_db', 'postgres','MyNewPass', {
         dialect: 'postgres',
         define: {

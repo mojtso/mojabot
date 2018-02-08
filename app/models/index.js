@@ -9,7 +9,7 @@ console.log(process.env.NODE_ENV);
 
 if(process.env.NODE_ENV === 'production') {
     console.log("...........running prod");
-    var sequelize = new Sequelize(process.env[config.use_env_variable], config);
+    var sequelize = new Sequelize(process.env.DATABASE_URL, config);
 }else {
     console.log("...........running dev");
     var sequelize = new Sequelize('subscribers_db', process.env.NODE_POSTGRES_USER, process.env.NODE_POSTGRES_PASSWORD, {

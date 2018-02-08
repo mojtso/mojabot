@@ -41,7 +41,7 @@ app.engine('hbs', exphbs.express4({
     defaultLayout: relative('views/index.hbs')
 }));
 app.set('view engine', 'hbs');
-app.set('views', relative('views'));
+app.set('views', viewsDir);
 //END PAGES CONFIG
 
 

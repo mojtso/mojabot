@@ -17,14 +17,10 @@
   },
   "homepage": "https://github.com/mojtso/mojabot#readme",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-3": "^6.24.1",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-hbs": "^1.0.4",
-    "nodemon": "^1.13.3",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "request": "^2.83.0",
@@ -32,6 +28,10 @@
     "sequelize-cli": "^3.2.0"
   },
   "devDependencies": {
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "nodemon": "^1.13.3"
   }
 }

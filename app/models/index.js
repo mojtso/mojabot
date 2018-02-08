@@ -4,7 +4,7 @@ var env = process.env.NODE_ENV || 'development';
 // var config = require(__dirname + '/../config/config.js')[env];
 import config from '../config/config.js';
 
-console.log(config.use_env_variable);
+console.log(config);
 console.log(process.env.NODE_ENV);
 
 if(config.use_env_variable) {

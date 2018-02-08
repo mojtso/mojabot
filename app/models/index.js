@@ -5,7 +5,7 @@ var env = process.env.NODE_ENV || 'development';
 import config from '../config/config';
 
 console.log(env);
-if(config.use_env_variable) {
+if(config.use_env_variable ==='production') {
     console.log("...........running prod");
     var sequelize = new Sequelize(process.env[config.use_env_variable], config);
 }else {
